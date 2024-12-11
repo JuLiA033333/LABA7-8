@@ -1,0 +1,248 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: block;
+    text-align: center;
+}
+
+@media (max-width: 730px)
+{
+    .category, .name, .ccal{
+        display: none;
+    }
+
+    .selectors{
+        width: 450px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-row: repeat(3, auto);
+        
+    }
+
+    .slider{
+        display: none;
+    }
+
+    .item img{
+        border-radius: 15px;
+    }
+
+    .line {
+        display: block;
+        width: 100%; 
+        margin: 10px 0; 
+        border: 0;
+        border-top: 1px solid #ccc; 
+    }
+}
+
+@media (min-width:731px) and (max-width:1200px){
+
+    .selectors{
+        grid-template-columns: repeat(3, 1fr);
+        grid-row: repeat(2, auto);
+        
+    }
+
+    .slider{
+        display: none;
+    }
+
+    .catalogue{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-row: auto;
+    }
+
+    .item{
+        padding: 15px;
+        border: 3px solid darkslategray;
+        padding-bottom: 5px;
+        background-color: lightgray;
+        transition: transform, box-shadow 0.2s;
+    }
+
+    .item:hover{
+        transition: transform 0.4s;
+        transition: box-shadow 0.13s;
+        transform: scale(1.03);
+        box-shadow:  3px 3px 5px black;
+    }
+
+    .item img{
+        object-fit: contain;
+        max-height: 70%;
+    }
+
+    .name{
+        display: inline-block;
+    }
+
+    .line {
+        display: block;
+        width: 100%; 
+        margin: 10px 0; 
+        border: 0;
+        border-top: 1px solid #ccc; 
+    }
+}
+
+@media (min-width: 1201px)
+{
+
+    main{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .catalogue{
+        flex: 0 0 73%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-row: auto;
+    }
+
+
+    .selectors{
+        flex: 0 0 23%;
+        order: 2;
+        background-color: rgb(241, 241, 241);
+        border: 2px solid rgb(169, 158, 158);
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        height: 600px;
+        position: sticky;
+        top: 100px
+    } 
+    
+
+
+
+    .item{
+        padding: 15px;
+        border: 2px solid rgb(93, 102, 102); 
+        padding-bottom: 5px;
+        background-color: rgb(255, 255, 255);
+        transition: transform, box-shadow 0.3s;
+    }
+
+    .item:hover{
+        transition: transform 0.4s;
+        transition: box-shadow 0.13s;
+        transform: scale(1.03);
+        box-shadow:  3px 3px 5px rgb(144, 144, 144);
+    }
+
+    .item img{
+        object-fit: contain;
+        max-height: 100%;
+    }
+
+    .line {
+        display: block;
+        width: 100%; 
+        margin: 10px 0; 
+        border: 0;
+        border-top: 1px solid #ccc; 
+    }
+}
+
+
+
+
+.ampersand {
+    color: red;
+}
+.logo{
+    display: inline-block;
+    font-size: 45px;
+    padding: 20px;
+}
+
+.selectors{
+    justify-self: center;
+    padding: 8px;
+    display: grid;
+    
+}
+
+.itemSelector{
+    cursor: pointer;
+    margin: 5px;
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    background-color: lightgray;
+    border: 2px solid rgb(81, 80, 80);
+    border-radius: 3px;
+    padding-top: 13px;
+    text-align: center;
+    font-size: 22px;
+    transition: transform 0.2s;
+}
+
+.itemSelector:hover{
+    transition: transform 0.4s;
+    transform: scale(1.08);
+}
+
+#Biscuits:checked ~ .selectors>label[for="Biscuits"],
+#Pastry:checked ~ .selectors>label[for="Pastry"],
+#Roll:checked ~ .selectors>label[for="Roll"],
+#Cake:checked ~ .selectors>label[for="Cake"],
+#Dessert:checked ~ .selectors>label[for="Dessert"]{
+    background-color: rgb(89, 158, 165);
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+.item{
+    display: none;
+    border-radius: 8px;
+    margin: 5px;
+}
+
+#noFilter:checked~.catalogue>.item,
+#Biscuits:checked~.catalogue>.biscuits,
+#Pastry:checked~.catalogue>.pastry,
+#Roll:checked~.catalogue>.roll,
+#Cake:checked~.catalogue>.cake,
+#Dessert:checked~.catalogue>.dessert{
+    display: block;
+}
+
+.item img{
+    width: 100%;
+    height: auto;
+}
+
+.category::after{
+    content: ':';
+}
+
+.name{
+    font-weight: bold;
+}
+
+.ccal::before{
+    content: 'Калорій у проції: ';
+    color: black;
+    font-weight:normal;
+}
+
+.ccal{
+    font-weight: bold;
+    color: black;
+}
+
+.ccal::after{
+    content: ' кКал';
+    color: black;
+    font-weight:normal;
+}
